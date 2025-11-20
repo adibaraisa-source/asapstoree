@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>THE GHATGPT</title>
+
+<style>
+	.input {
+		width: 450px;
+		height: 40px;
+       transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    bottom: 12%;
+       border-radius: 25px;
+       color: black;
+       background-color: #b0e93d;
+         cursor: pointer;
+         font-size:17.5px;
+         font-family: Cursive;
+         padding: 0px 20px;
+         border: 2px solid #354f00;
+         outline: none;
+                            	}
+
+     .input::placeholder{
+     	 color: black;
+     }
+
+     .up {
+     	width: 29px;
+     	height: 29px;
+     	transform: translate(-50%, -50%);
+  top: 82.25%;
+  left: 64%;
+  position: absolute;
+     	  cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+    
+
+     }
+     .up:hover{
+      width: 31px;
+      height: 31px;
+      opacity: 1;
+
+
+     }
+
+     .box {
+    width: 465px;
+    height: 513px;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    background-color:#222222; 
+    border-radius: 20px;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 75px rgba(100, 100, 100, 0.6);
+
+   
+}
+
+
+
+
+     .ad1 {
+      width:250px;
+      height:110px;
+     transform: translate(-50%,-50%);
+    position: absolute;
+    left: 85%;
+    top: 20%;
+     background-color: whitesmoke;
+     border-radius: 5px;
+     background-color: darkgray;
+   
+
+     }
+     .ad2 {
+      width:350px;
+      height:300px;
+     transform: translate(-50%,-50%);
+    position: absolute;
+    left: 15%;
+    top: 30%;
+     background-color: whitesmoke;
+     border-radius: 5px;
+   }
+
+     .mgsbox{
+      padding: 12px 10px;
+      width: fit-content;
+      max-width: 85%;
+      background-color:#88cc00;
+      border-radius: 20px;
+      word-wrap: break-word;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+      border-bottom-right-radius: 5px;
+      font-size: 20px;
+      line-height: 1.2;
+      align-self: flex-end;
+      text-align: left;
+      color: #1a1a1a;
+     }
+   
+    .botbox{
+       
+      padding: 12px 10px;
+      width: fit-content;
+      max-width: 85%;
+      background-color: #444444;
+      border: 5px solid #444444;
+      opacity: 80%;
+      border-radius: 20px;
+      word-wrap: break-word;
+      color:#aaff00;
+      border-bottom-left-radius: 5px;
+      font-size: 20px;
+      line-height: 1.2;
+      
+     }
+
+     .mgsbox, .botbox {
+    margin-top: 15px;   
+}
+
+
+    .p{
+      color: #94cd22;
+      z-index: 11;
+      font-weight: 500;
+      font-size: 35px;
+      transform: translate(-50%,-50%);
+      position:absolute;
+      top: 45%;
+      left:50%;
+      max-width: 400px;
+      word-wrap: break-word;
+      text-align: center;
+      text-shadow: 1px 1px 5px rgba(150, 150, 150, 1) ;
+      transition: all 0.3s ease;
+    }    
+
+    .think{
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      max-width: 85%;
+      background-color: white;
+      animation: grow 0.8s ease-out forwards;
+      flex-shrink: 0;
+    }
+
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.3);
+        opacity: 0.8;
+    }
+}
+@keyframes growdown {
+    from {
+        transform: scale(1.3);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+    
+    .popbox{
+    width: 465px;
+    height: 513px;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    background-color:#555555; 
+    border-radius: 20px;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 75px rgba(100, 100, 100, 0.6);
+    z-index:-2
+
+   
+}
+    .hiddenbutton {
+        width: 20px;
+        height: 10px;
+        background-color:#1a1a
+            }
+
+   
+</style>
+
+</head>
+<body style="background-color:#1a1a1a">
+
+  <p id="p" class="p"></p>
+  <button class="hiddenbutton" onclick="KI()"></button>
+
+
+
+ 
+
+<input type="text" id ="input" placeholder="Type something..." class="input"> 
+
+<img src="https://cdn.discordapp.com/attachments/1379716848139894826/1431657389689405591/Screenshot_20251025-205344_1.png?ex=691742d8&is=6915f158&hm=f4ec4fc392b0a29e5647d66e1e4b337587badfdd706d3f3362097fd3ac274788&" class="up" onclick="mgs()">
+
+ <div id="box" class="box" > </div>
+ <div id="popbox" class="popbox" > </div>
+
+
+ <div class="ad1"><button style="background-color: lightcyan; ">Ads</button> <a href="ADS.html" target="_blank" ><button style="transform: translate(40px,50px);">CLICK ME</button><br><br><br><br><br>Learn more</a></div>
+
+ <a href="ASAPSHOP.html"><video src="Antivirusad.mp4" class="ad2"  autoplay loop muted></video></a>
+ 
+ <script type="module">
+    // Import Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    // Firebase config
+    const firebaseConfig = {
+        apiKey: "AIzaSyDV_dNKQ7AOadhdaIOGuHbvqNR7C8M_qFU",
+        authDomain: "gtps-5da84.firebaseapp.com",
+        databaseURL: "https://gtps-5da84-default-rtdb.firebaseio.com",
+        projectId: "gtps-5da84",
+        storageBucket: "gtps-5da84.firebasestorage.app",
+        messagingSenderId: "956282691786",
+        appId: "1:956282691786:web:0b0fa3960dd6756567d433"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const mymgs = ref(db, 'messages');
+
+    // Your existing chat code
+    document.onkeydown = function (k) {
+       if (k.key === "Enter") { 
+           mgs();
+       }
+    }  
+
+    let p=0;
+    let n=0;
+    function pwork() {
+        if (p==0) {
+            let ran= Math.floor(Math.random()*3)
+            let pp=null;
+            if (ran==0) pp ="Where should we begin?";
+            else if (ran==1) pp = "Start your legendary conversation with GHATGPT";
+            else if (ran==2) pp = "What's on your mind";
+            document.getElementById("p").innerText=pp
+            p=1;
+        }
+        else if (p==2) {
+            document.getElementById("p").innerText=""
+        }
+    }
+    pwork()
+    let t = setInterval(pwork,50)
+
+    function mgs() {
+         p = 2;
+    clearInterval(t); 
+    document.getElementById("p").innerText = "";
+
+        if (n=="0") {
+            let mgsbox= document.getElementById("mgsbox")
+            let box= document.getElementById("box")
+            let inputmy= document.getElementById("input").value
+            let input= document.getElementById("input").value.toLowerCase()
+            input = input.replace(/ {2,}/g, " ");
+            if (input=== " ") return;
+            if (input=== "") return;
+
+            // --- SAVE TO FIREBASE ---
+            const newmymgs = push(mymgs);
+            set(newmymgs, {
+                text: inputmy,
+                timestamp: Date.now()
+            });
+            // -------------------------
+
+            document.getElementById("input").value=""
+            document.getElementById("input").focus()
+
+            let ubox= document.createElement("div")
+            let umgs= document.createElement("span")
+            ubox.className="mgsbox"
+            umgs.innerText=inputmy
+            box.appendChild(ubox)
+            ubox.appendChild(umgs)
+
+            function botmgs(bottext) {
+                let think = document.createElement("div");
+                think.className = "think";
+                box.appendChild(think);
+                n=1
+
+                setTimeout(() => {
+                    think.style.animation = "growdown 0.8s ease-out forwards";
+                }, 800);
+
+                setTimeout(() => {
+                    think.style.animation = "grow 0.8s ease-out forwards";
+                }, 1600);
+
+                let ye= Math.random()*2000+400
+
+                setTimeout(() => {
+                    think.remove();
+                    let botbox = document.createElement("div");
+                    botbox.className = "botbox";
+                    box.appendChild(botbox);
+                    let num = 0;
+
+                    function message() {
+                        if (num < bottext.length) {
+                            const span = document.createElement('span');
+                            span.textContent = bottext[num];
+                            botbox.appendChild(span);
+                            num++;
+                            let spin =Math.random()*40+5
+                            setTimeout(message, spin);
+                            n=1
+                            box.scrollTo({
+                                top: box.scrollHeight,
+                                behavior: "smooth"
+                            });
+                        }
+                        else {
+                            n=0
+                        }
+                    }
+
+                    message(); 
+                }, ye);
+            }
+
+            if (input.includes("hi")) {
+                botmgs("Hello there, how's it going?");
+            } else if (input.includes("how r u") || input.includes("how are you")) {
+                botmgs("I'm alright. What about you?");
+            } else if (input.includes("lol")) {
+                botmgs("Haha... happy to see you laughing");
+            } else if (input.includes("am fine")) {
+                botmgs("Glad to hear that! So what are you looking forward to do today?");
+            } else if (input.includes("what are you doing")) {
+                botmgs("Hehe i am chatting with you.");
+            } else {
+                botmgs("I'm not familiar with that. Contact developer to add information");
+            }
+        }
+
+        box.scrollTo({
+            top: box.scrollHeight,
+            behavior: "smooth"
+        });
+    }
+</script>
+
+
+
+
+</body>
+</html>
