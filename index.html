@@ -3,14 +3,14 @@
 <head>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>THE GHATGPT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>THE GHATGPT</title>
 
 <style>
-	.input {
-		width: 450px;
-		height: 40px;
+    .input {
+        width: 450px;
+        height: 40px;
        transform: translate(-50%,-50%);
     position: absolute;
     left: 50%;
@@ -24,20 +24,20 @@
          padding: 0px 20px;
          border: 2px solid #354f00;
          outline: none;
-                            	}
+                                }
 
      .input::placeholder{
-     	 color: black;
+         color: black;
      }
 
      .up {
-     	width: 29px;
-     	height: 29px;
-     	transform: translate(-50%, -50%);
+        width: 29px;
+        height: 29px;
+        transform: translate(-50%, -50%);
   top: 82.25%;
   left: 64%;
   position: absolute;
-     	  cursor: pointer;
+          cursor: pointer;
     border-radius: 50%;
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -364,33 +364,34 @@
                 }, ye);
             }
 
-            if (input.includes("hi")||input.includes("hey")||input.includes("yo") {
+            if (input.includes("hi")||input.includes("hey")||input.includes("yo")) {
                 botmgs("Hello there, how's it going?");
             } else if (input.includes("how r u") || input.includes("how are you")) {
                 botmgs("I'm alright. What about you?");
             } else if (input.includes("lol")) {
                 botmgs("Haha... happy to see you laughing");
             } else if (input.includes("am fine")) {
-                botmgs("Glad to hear that! So what are you looking forward to do today?");
+                botmgs("Glad to hear that! So what are you looking forward to do today?")
             } else if (input.includes("what are you doing")) {
                 botmgs("Hehe i am chatting with you.");
-            } else if (input.includes("can you speak bangla") || input.includes("speak bangla")) 
+            } else if (input.includes("can you speak bangla") || input.includes("speak bangla")) {
                 botmgs("Sorry,I can't.Contact developer,maybe they will take your idea to consideration.");
-	        } else if (input.includes("who is developer")) {
+            }
+             else if (input.includes("who is developer")) {
                 botmgs("Asap ltd. is the main owner of GhatGPT. The founder of GhatGPT is Samin and Sporsho. If you want to learn more about Asap ltd write,Asap ltd ");
-		 } else if (input.includes("contact developer")) {
-                botmgs("One of the main developer is Samin. You can contact him in his discord '#gl570'. However If you want to contact hasib then here is his discord '#hasib6114'. You can only find them in discord .);
-		 } else if (input.includes("asap ltd")) {
+            } else if (input.includes("contact developer")) {
+                botmgs("One of the main developer is Samin. You can contact him in his discord '#gl570'. However If you want to contact hasib then here is his discord '#hasib6114'. You can only find them in discord")
+            } else if (input.includes("asap ltd")) {
                 botmgs("Asap ltd is a future leading company founded by Samin and Hasib. Asap ltd covers almost every technological aspects.Thet are mainly known for their costomer friendly behaviour.They seeks users need and update their stuff according to that.They have servral easter eggs. Find them and you will get rewards according to that.If you want to learn more about Asap ltd developer has a idea of making a dedicated website about it.You can contact developer on discord here is their id. '#hasib6114','#gl570'");
-		 } else if (input.includes("am fine")||input.includes("im fine")) {
+            } else if (input.includes("am fine")||input.includes("im fine")) {
                 botmgs("Glad to hear that! So what are you looking forward to do today?");
-		 } else if (input.includes("what can u do")|| input.includes("what can you do")) {
+            } else if (input.includes("what can u do")|| input.includes("what can you do")) {
                 botmgs("I am beta version of GhatGPT AI. I cant do much but i can run a casual corversation.The developers are constantly updating me.");
-		} else if (input.includes("its good")|| input.includes("its going well")||input=="fine") {
+            } else if (input.includes("its good")|| input.includes("its going well")||input=="fine") {
                 botmgs("Glad to hear that! So what are you looking forward to do today?");
-	     }
-			else {
-                botmgs("I'm not familiar with that. Contact developer to add information");
+            }
+              else {
+                botmgs("I'm not familiar with that. Contact developer to add information")
 
             }
         }
