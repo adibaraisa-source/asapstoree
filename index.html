@@ -357,6 +357,7 @@
                         }
                         else {
                             n=0
+                            
                         }
                     }
 
@@ -383,11 +384,33 @@
                 botmgs("Asap ltd is a future leading company founded by Samin and Hasib. Asap ltd covers almost every technological aspects.Thet are mainly known for their costomer friendly behaviour.They seeks users need and update their stuff according to that.They have servral easter eggs. Find them and you will get rewards according to that.If you want to learn more about Asap ltd developer has a idea of making a dedicated website about it.You can contact developer on discord here is their id. '#hasib6114','#gl570'");
             } else if (input.includes("am fine")||input.includes("im fine")) {
                 botmgs("Glad to hear that! So what are you looking forward to do today?");
-            } else if (input.includes("what can u do")|| input.includes("what can you do")) {
+            } else if (input.includes("what can u do")|| input.includes("what can you do")||input.includes("who are you")|| input.includes("what are you")||input.includes("your name")|| input.includes("who r u")||input.includes("what r u")|| input.includes("whats ghatgpt")) {
                 botmgs("I am beta version of GhatGPT AI. I cant do much but i can run a casual corversation.The developers are constantly updating me.");
-            } else if (input.includes("its good")|| input.includes("its going well")||input=="fine") {
+            } else if (input.includes("its good")|| input.includes("well")||input=="fine"|| input.includes("very good")) {
                 botmgs("Glad to hear that! So what are you looking forward to do today?");
-            }
+            } else if (input.includes("i dont know")|| input.includes("idk")||input.includes("i don't know")) {
+                botmgs("Big brain move, just ‘idk’ it is.");
+            } else if (input.includes("how old are you")||input.includes("what is your age")) {
+                botmgs("Some people just dont age 😎");
+            } else if (input.includes("sing")) {
+                botmgs("La la la 🎶(I tried!)");
+            } else if (input.includes("dance")) {
+                botmgs("I would dance, but I have no legs 😆");
+            } else if (input.includes("bored")) {botmgs("Let's chat! Tell me something interesting.");
+            } else if (input.includes("sleepy") || input.includes("tired")||input.includes("i need to sleep") || input.includes("slp")) {
+  const replies = [
+    "Go get some sleep 😴",
+    "Go rest a bit. You’ll feel better!",
+    "Sounds like you need sleep. Take care of yourself!",
+    "Drink some water and close your eyes for a minute."
+  ];
+  botmgs(replies[Math.floor(Math.random()*replies.length)]); 
+            }  else if (input.includes("love you")||input.includes("love u") ) {
+                    botmgs("Umm... are you dumb?Im a AI i dont even exist. Im not even a AI 😆😆 ");
+            }  else if (input.includes("be my friend")) {
+                    botmgs("Of course! I'm your friend!");
+            }        
+
 
 
 
@@ -396,9 +419,20 @@
          
 
 
-
-             else if (input.includes("hi")||input.includes("hey")||input.includes("yo")) {
-                botmgs("Hello there, how's it going?");
+             else if (input.includes("thank")) {
+                botmgs("You're most welcome!");
+            }
+             else if (input.includes("hi")||input.includes("hey")||input.includes("yo")||input.includes("hello")||input.includes("hlw")) {
+  const replies = [
+    "Hello there, hows it going?",
+    "Welcome back! what you looking forward to do?",
+    "Hello ;)",
+    "whats up??"
+  ];
+  botmgs(replies[Math.floor(Math.random()*replies.length)]); 
+            }
+            else if (input.includes("bye")||input.includes("goodbye")||input.includes("see u later")||input.includes("see you later")||input.includes("see ya")||input.includes("will talk later")) {
+                botmgs("Okay bye see ya later.");
             }
               else {
                 botmgs("I'm not familiar with that. Contact developer to add information")
